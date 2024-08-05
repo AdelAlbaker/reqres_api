@@ -30,7 +30,7 @@ class ContactsBody extends StatelessWidget {
               children: [
                 SizedBox(
                   //ToDo: Make the height responsive :)
-                  height: 600,
+                  height: 560,
                   child: ListView.builder(
                     itemCount: state.list.length,
                     shrinkWrap: true,
@@ -51,49 +51,50 @@ class ContactsBody extends StatelessWidget {
                               MaterialPageRoute(builder: (context) =>  ContactItem(
                                 imageUrl: '${state.list[index].avatar}',
                                 firstName: '${state.list[index].firstName}',
-
                               )),
                             );
                           },
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      CircleAvatar(
-                                        backgroundColor: Colors.grey,
-                                        radius: 30,
-                                        backgroundImage: NetworkImage(
-                                            "${state.list[index].avatar}"
-                                        ),
-                                      ),
-                        
-                                      const Positioned(
-                                          right: 5,
-                                          bottom: 5,
-                                          child: Icon(
-                                              Icons.monetization_on,
-                                              size: 10.0,
-                                              color: Colors.green
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Row(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        CircleAvatar(
+                                          backgroundColor: Colors.grey,
+                                          radius: 30,
+                                          backgroundImage: NetworkImage(
+                                              "${state.list[index].avatar}"
                                           ),
-                                      )
-                                    ],
-                                  ),
-                                  const SizedBox(width: 20,),
-                                  Column(
-                                    children: [
-                                      Text("${state.list[index].firstName} ${state.list[index].lastName} "),
-                                      Text("${state.list[index].lastName}"),
-                                    ],
-                                  ),
-                                ],
+                                        ),
+
+                                        const Positioned(
+                                            right: 5,
+                                            bottom: 5,
+                                            child: Icon(
+                                                Icons.monetization_on,
+                                                size: 10.0,
+                                                color: Colors.green
+                                            ),
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(width: 20,),
+                                    Column(
+                                      children: [
+                                        Text("${state.list[index].firstName} ${state.list[index].lastName} "),
+                                        Text("${state.list[index].lastName}"),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                        
-                          ],
+
+                            ],
+                          ),
                         ),
                       );
                     },
